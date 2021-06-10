@@ -10,24 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-/*class test
-{
-    private:
-    std::string ola;
-    public:
-    test();
-    ~test();
-};
-test::test(){
-    return;
-}
-test::~test(){
-    return;
-}*/
+#include"Pony.hpp"
 
 int main(){
-    //test* oo = new test;
-    //delete oo;
+    ponyOnTheHeap();
+	fflush(stdin);
+    ponyOnTheStack();
     return 1;
 }

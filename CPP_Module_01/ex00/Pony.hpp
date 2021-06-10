@@ -9,22 +9,24 @@
 /*   Updated: 2021/06/09 18:24:47 by ncameiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#ifndef PONY_HPP
+# define PONY_HPP
+#include<iostream>
+#include<string>
 class Pony
 {
-private:
-    /* data */
-public:
-    Pony(/* args */);
+    private:
+    
+    std::string name;
+    int age;
+    
+    public:
+    
+    Pony();
     ~Pony();
-    ponyOnTheHeap();
-    ponyOnTheStack();
+    void showPonyInfo();
 };
+void ponyOnTheHeap();
+void ponyOnTheStack();
 
-Pony::Pony(/* args */)
-{
-}
-
-Pony::~Pony()
-{
-}
+#endif
