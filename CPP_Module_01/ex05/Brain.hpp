@@ -5,7 +5,7 @@
 class Brain
 {
 private:
-    /* data */
+    /* data d*/
 public:
     Brain(/* args */);
     ~Brain();
