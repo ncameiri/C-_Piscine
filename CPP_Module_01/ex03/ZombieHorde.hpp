@@ -9,7 +9,7 @@ private:
 public:
     ZombieHorde(int N);
     ~ZombieHorde();
-    int shownum();
+    void announce();
 };
 #endif
 
