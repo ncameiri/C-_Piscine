@@ -4,10 +4,12 @@
 class ZombieHorde
 {
 private:
-    /* data */
+    int zombies_num;
+    Zombie **zomb;
 public:
     ZombieHorde(int N);
     ~ZombieHorde();
+    int shownum();
 };
 #endif
 
