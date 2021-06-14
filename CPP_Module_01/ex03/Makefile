@@ -11,7 +11,7 @@ FLAGS	= -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		g++ $(FLAGS) $(OBJ) -o $(NAME)
+		clang++ $(FLAGS) $(OBJ) -o $(NAME)
 	echo '\033[32m[ ✔ ]' "$(NAME) created" '\033[0m'
 
 clean:
