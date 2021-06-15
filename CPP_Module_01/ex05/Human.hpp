@@ -3,19 +3,18 @@
 #include "Brain.hpp"
 class Human
 {
-private:
-    /* data */
-public:
+    private:
+    //Brain *brain;
+    //const std::string Brain;
+    
+    public:
     Human(/* args */);
     ~Human();
+    std::string identify() const;
+    Brain const brain;
+    //Brain::Brain getBrain();
+    Brain const &getBrain() const; 
 };
 
-Human::Human(/* args */)
-{
-}
-
-Human::~Human()
-{
-}
 
 #endif
