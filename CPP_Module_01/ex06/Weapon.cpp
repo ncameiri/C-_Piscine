@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(/* args */)/*:type("ola")*/{
+Weapon::Weapon(std::string type_to_set):type(type_to_set){
 return;
 }
 

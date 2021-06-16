@@ -3,11 +3,13 @@
 #include "HumanA.hpp"
 class HumanB
 {
-private:
-    /* data */
-public:
-    HumanB(/* args */);
+    private:
+    std::string name;
+    Weapon& weapon;
+    public:
+    HumanB(std::string in_name,Weapon& wep);
     ~HumanB();
+    void attack();
 };
 
 
