@@ -10,6 +10,7 @@ private:
 public:
     HumanA(std::string in_name,Weapon& wep);
     ~HumanA();
+    void attack();
 };
 
 
