@@ -1,20 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ncameiri <ncameiri@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/09 18:00:33 by ncameiri          #+#    #+#             */
-/*   Updated: 2021/06/09 18:22:12 by ncameiri         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include"Pony.hpp"
-
+#include "Zombie.hpp"
+//#include "ZombieHorde.hpp"
+void randomChump(std::string name);
+Zombie* newZombie (std::string name);
 int main(){
-    ponyOnTheHeap();
-	fflush(stdin);
-    ponyOnTheStack();
-    return 1;
+
+    randomChump("Ze");
+    
+    Zombie *Luis;
+    Luis = newZombie("LUIS");
+    Luis->announce();
+    delete Luis;
 }

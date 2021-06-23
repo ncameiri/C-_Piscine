@@ -1,6 +1,6 @@
-SRCS	= Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
+SRCS	= Pony.cpp main.cpp
 
-NAME	= zombie
+NAME	= pony
 
 OBJ		= $(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ FLAGS	= -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		clang++ $(FLAGS) $(OBJ) -o $(NAME)
+		g++ $(FLAGS) $(OBJ) -o $(NAME)
 	echo '\033[32m[ ✔ ]' "$(NAME) created" '\033[0m'
 
 clean:

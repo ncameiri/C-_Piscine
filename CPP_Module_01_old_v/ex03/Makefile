@@ -1,4 +1,4 @@
-SRCS	= Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
+SRCS	= Zombie.cpp ZombieHorde.cpp main.cpp
 
 NAME	= zombie
 
