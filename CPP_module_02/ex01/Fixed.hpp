@@ -2,6 +2,7 @@
 #define FIXED_HPP
 #include <iostream>
 #include <string>
+#include <cmath>
 //https://www.francescmm.com/orthodox-canonical-class-form/
 class Fixed
 {
@@ -20,6 +21,9 @@ public:
 
     int getRawBits(void) const;
     void setRawBits(int const raw);
+
+    //EX01
+    
 };
 
 #endif
