@@ -23,6 +23,15 @@ public:
     void setRawBits(int const raw);
 
     //EX01
+    Fixed(const int nmr);
+
+    Fixed(const float nmr);
+
+    float toFloat(void) const;
+
+    int toInt(void) const;
+
+    //Fixed operator << (const Fixed& )
     
 };
 

@@ -36,3 +36,15 @@ Fixed &Fixed::operator = (Fixed const & to_copy){
         this->value = to_copy.getRawBits();
     return (*this);
 }
+
+/*EX01*/
+Fixed::Fixed(const int nmr){
+    std::cout << "Int constructor called" << std::endl;
+    value =frac_bits << nmr;
+//PARTE DE TESTES PARA VER VALUE
+std::cout << value<<"\n";
+value = nmr >> frac_bits;
+std::cout << value<<"\n";
+
+
+}
