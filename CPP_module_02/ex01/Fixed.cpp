@@ -38,13 +38,32 @@ Fixed &Fixed::operator = (Fixed const & to_copy){
 }
 
 /*EX01*/
+
 Fixed::Fixed(const int nmr){
     std::cout << "Int constructor called" << std::endl;
-    value =frac_bits << nmr;
+    value =nmr << frac_bits;
 //PARTE DE TESTES PARA VER VALUE
+std::cout /*<<std::dec*/<< value<<"\n";
+//value = nmr >> frac_bits;
 std::cout << value<<"\n";
-value = nmr >> frac_bits;
-std::cout << value<<"\n";
-
-
 }
+
+
+Fixed::Fixed(const float nmr){
+value = roundf(nmr * (1 << frac_bits));
+}
+
+
+float Fixed::toFloat() const {
+	return ((float)(this->value) / (1 << frac_bits));
+}
+
+int Fixed::toInt() const {
+    return(this->value >> frac_bits);
+}
+
+std::ostream & operator<<( std::ostream & ost, Fixed const & nb){
+	ost << nb.toFloat();
+	return ost;
+}
+

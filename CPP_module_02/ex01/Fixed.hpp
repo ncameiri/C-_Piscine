@@ -16,7 +16,7 @@ public:
     //COPY CONSTRUCTOR
     Fixed(Fixed const &to_copy); 
 
-    //COPY ASSIGNMENT OPERATOR (ASSIGNATION OPERATOR CALLED)
+    //COPY ASSIGNMENT OPERATOR (ASSIGNATION OPERATOR OVERLOAD)
     Fixed & operator = (Fixed const & to_copy);
 
     int getRawBits(void) const;
@@ -31,8 +31,8 @@ public:
 
     int toInt(void) const;
 
-    //Fixed operator << (const Fixed& )
     
 };
-
+//overload to << operator
+std::ostream & operator <<(std::ostream  & ost, Fixed const & nmr);
 #endif
