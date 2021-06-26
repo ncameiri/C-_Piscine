@@ -20,7 +20,7 @@ Fixed::Fixed(Fixed const &to_copy)
 
 int Fixed::getRawBits(void) const 
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return(this->value);
 }
 
@@ -32,7 +32,6 @@ void Fixed::setRawBits(int const raw)
 
 Fixed &Fixed::operator = (Fixed const & to_copy){
    std::cout << "Assignation operator called" << std::endl;
-    if (this != &to_copy)
         this->value = to_copy.getRawBits();
     return (*this);
 }
@@ -42,14 +41,11 @@ Fixed &Fixed::operator = (Fixed const & to_copy){
 Fixed::Fixed(const int nmr){
     std::cout << "Int constructor called" << std::endl;
     value =nmr << frac_bits;
-//PARTE DE TESTES PARA VER VALUE
-std::cout /*<<std::dec*/<< value<<"\n";
-//value = nmr >> frac_bits;
-std::cout << value<<"\n";
 }
 
 
 Fixed::Fixed(const float nmr){
+    std::cout << "Float constructor called" << std::endl;
 value = roundf(nmr * (1 << frac_bits));
 }
 

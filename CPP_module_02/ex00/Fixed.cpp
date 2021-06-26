@@ -32,7 +32,6 @@ void Fixed::setRawBits(int const raw)
 
 Fixed &Fixed::operator = (Fixed const & to_copy){
    std::cout << "Assignation operator called" << std::endl;
-    if (this != &to_copy)
         this->value = to_copy.getRawBits();
     return (*this);
 }
