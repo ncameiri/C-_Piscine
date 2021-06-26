@@ -9,11 +9,13 @@ private:
     int value;
     static const int frac_bits;
 public:
+
     Fixed();
     ~Fixed();
 
     //COPY CONSTRUCTOR
-    Fixed(Fixed const &to_copy); 
+  
+  
 
     //COPY ASSIGNMENT OPERATOR (ASSIGNATION OPERATOR CALLED)
     Fixed & operator = (Fixed const & to_copy);
