@@ -17,4 +17,15 @@ public:
     void beRepaired(unsigned int amount);
 };
 
+class Player : public ClapTrap
+{
+private:
+    /* data */
+public:
+    Player(std::string nam): ClapTrap(nam);
+    ~Player();
+};
+
+
+
 #endif
