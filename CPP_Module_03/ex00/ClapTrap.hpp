@@ -5,12 +5,15 @@ class ClapTrap
 {
 private:
     std::string Name;
-    int Hitpoints;
-    int Energy_points;
-    int Attack_damage;
+    unsigned int Hitpoints;
+    unsigned int Energy_points;
+    unsigned int Attack_damage;
 public:
     ClapTrap(std::string in_name);
+    ClapTrap( ClapTrap const &to_copy);
     ~ClapTrap();
+    //ClapTrap & operator =(ClapTrap const &to_copy);
+
 
     void attack(std::string const & target);
     void takeDamage(unsigned int amount);

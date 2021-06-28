@@ -1,11 +1,17 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap (std::string in_name): Name(in_name), Hitpoints(10), Energy_points(10), Attack_damage(0){
-    std::cout<<"Default constructor called\n";
+ClapTrap::ClapTrap (std::string in_name): Name(in_name),
+    Hitpoints(10), Energy_points(10), Attack_damage(0){
+    std::cout << "Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap (ClapTrap const &to_copy){
+    *this = to_copy;
+    std::cout << "Copy constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap (){
-    std::cout<<"Destructor called\n"; 
+    std::cout << "Destructor called" << std::endl;
 }
 
 void ClapTrap::attack(std::string const & target){
