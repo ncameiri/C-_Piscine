@@ -14,6 +14,14 @@ ClapTrap::~ClapTrap (){
     std::cout << "Destructor called" << std::endl;
 }
 
+ClapTrap &ClapTrap::operator =(ClapTrap const &to_copy){
+    this->Name = to_copy.Name;
+    this->Hitpoints = to_copy.Hitpoints;
+    this->Energy_points = to_copy.Energy_points;
+    this->Attack_damage = to_copy.Attack_damage;
+    return (*this);
+}
+
 void ClapTrap::attack(std::string const & target){
     std::cout<<"FR4G-TP ";
     std::cout<<"<"<<this->Name<<"> ";
@@ -26,9 +34,14 @@ void ClapTrap::attack(std::string const & target){
 
 void ClapTrap::takeDamage(unsigned int amount){
     std::cout<<"takeDamage called\n";
+    if(Energy_points - amount <= 0)
     this->Attack_damage += amount;
 }
 
  void ClapTrap::beRepaired(unsigned int amount){
     std::cout<<"beRepaired called\n";
+    if(amount + Energy_points >= 10 )
+        this->Energy_points = 10;
+    else
+        this->Energy_points +=amount;
  }
