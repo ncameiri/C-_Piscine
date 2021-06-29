@@ -1,5 +1,5 @@
-#ifndef CLAP_TRAP_HPP
-#define CLAP_TRAP_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 #include <iostream>
 class ClapTrap
 {
@@ -10,6 +10,7 @@ private:
     unsigned int Attack_damage;
 public:
     ClapTrap(std::string in_name);
+    ClapTrap(std::string in_name, int opt);
     ClapTrap(ClapTrap const &to_copy);
     ~ClapTrap();
     ClapTrap & operator =(ClapTrap const &to_copy);
