@@ -15,3 +15,12 @@ ScavTrap::~ScavTrap()
 void ScavTrap::guardGate(){
 	std::cout << this->getName() <<" [ScavTrap] has been set to Gate Keeper mode!\n";   
 }
+
+void ScavTrap::attack(std::string const & target){
+	 std::cout<<"SC4V-TP ";
+    std::cout<<"<"<<this->Name<<"> ";
+    std::cout<<"attacks <"<<target;
+    std::cout<<">, causing <";
+    std::cout<</*this->Attack_damage*/3<<"> ";
+    std::cout<<"points of damage!\n";
+}

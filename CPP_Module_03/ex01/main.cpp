@@ -11,6 +11,8 @@ int main() {
     hero.beRepaired(1);
 	hero.beRepaired(9);*/
 	ScavTrap Hero("John");
-	Hero.guardGate();
+	Hero.setName("TIAGO");
+	Hero.ClapTrap::attack("AAA");
+	Hero.attack("EE");
 return 0;
 }
