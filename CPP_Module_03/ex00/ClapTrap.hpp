@@ -18,6 +18,18 @@ public:
     void attack(std::string const & target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
+
+    //GETTERS
+    std::string getName()const;
+    unsigned int getHitpoints()const;
+    unsigned int getEnergy_points()const;
+    unsigned int getAttack_damage()const;
+    
+    //SETTERS
+    void setName(std::string name);
+    void setHitpoints(unsigned int Hitp);
+    void setEnergy_points(unsigned int Ene_pts);
+    void setAttack_damage(unsigned int Att_pts);
 };
 
 #endif

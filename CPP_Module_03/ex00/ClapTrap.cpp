@@ -64,3 +64,37 @@ void ClapTrap::takeDamage(unsigned int amount){
         this->Hitpoints +=amount;
     }
  }
+
+//GETTERS
+std::string ClapTrap::getName()const{
+    return(this->Name);
+}
+
+unsigned int ClapTrap::getHitpoints()const{
+    return(this->Hitpoints);
+}
+
+unsigned int ClapTrap::getEnergy_points()const{
+    return(this->Energy_points);
+} 
+
+unsigned int ClapTrap::getAttack_damage()const{
+    return(this->Attack_damage);
+}
+
+//SETTERS
+void ClapTrap::setName(std::string name){
+    this->Name = name;
+}
+
+void ClapTrap::setHitpoints(unsigned int Hitp){
+    this->Hitpoints = Hitp;
+}
+
+void ClapTrap::setEnergy_points(unsigned int Ene_pts){
+    this->Energy_points = Ene_pts;
+}
+
+void ClapTrap::setAttack_damage(unsigned int Att_pts){
+    this->Attack_damage = Att_pts;
+}
