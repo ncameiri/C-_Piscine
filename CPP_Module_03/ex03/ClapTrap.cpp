@@ -1,9 +1,15 @@
 #include "ClapTrap.hpp"
-
+ClapTrap::ClapTrap(){
+     std::cout << "Default Constructor called" << std::endl;
+}
 ClapTrap::ClapTrap (std::string in_name): Name(in_name),
     Hitpoints(10), Energy_points(10), Attack_damage(0){
     std::cout << "Constructor called" << std::endl;
 }
+/*ClapTrap::ClapTrap (std::string in_name, int opt): Name(in_name),
+    Hitpoints(100), Energy_points(50), Attack_damage(20){
+    std::cout << "Constructor called" << std::endl;
+}*/
 
 ClapTrap::ClapTrap (ClapTrap const &to_copy){
     *this = to_copy;
@@ -36,8 +42,9 @@ void ClapTrap::takeDamage(unsigned int amount){
     std::cout<<"takeDamage called\n";
     if((int)(Hitpoints - amount) <= 0)
     {
-	    this->Hitpoints = 0;
-        std::cout << "FR4G-TP " << this->Name << " Loose ALL Hitpoints \n";
+         std::cout << "FR4G-TP " << this->Name << " Loose ALL Hitpoints \n";
+	    
+        this->Hitpoints = 0;
     }
     else
     {
@@ -64,7 +71,7 @@ void ClapTrap::takeDamage(unsigned int amount){
     }
  }
 
-//GETTERS
+ //GETTERS
 std::string ClapTrap::getName()const{
     return(this->Name);
 }

@@ -1,18 +1,17 @@
 #include"ClapTrap.hpp"
 #include"ScavTrap.hpp"
-// https://www.youtube.com/watch?v=oz3f-ms-AJs
-// https://github.com/aorji/42-CPP-pool/blob/master/d03/ex00/FragTrap.cpp
+
 int main() {
-	/*ClapTrap hero("Nakayama");
-    std::cout << "attack:" << std::endl;
-	hero.attack("Chewbacca");
-	hero.takeDamage(5);   
-	hero.takeDamage(5);
-    hero.beRepaired(1);
-	hero.beRepaired(9);*/
-	ScavTrap Hero("John");
-	Hero.setName("TIAGO");
-	Hero.ClapTrap::attack("AAA");
-	Hero.attack("EE");
-return 0;
+
+	ScavTrap hero("John");
+	std::cout << "New Hero Created info:" << std::endl;
+	std::cout << "Name:" <<hero.getName()<<" | " ;
+	std::cout << "Hitpoints:" <<hero.getHitpoints() <<" | " ;
+	std::cout << "Energy Points:" <<hero.getEnergy_points()<<" | " ;
+	std::cout << "Attack Damage:" <<hero.getAttack_damage() << std::endl;
+	hero.ClapTrap::attack("Monkey");
+	hero.attack("Gorila");
+	hero.guardGate();
+
+	return 0;
 }
