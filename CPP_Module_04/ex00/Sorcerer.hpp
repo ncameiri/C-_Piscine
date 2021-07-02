@@ -3,6 +3,7 @@
 #include<iostream>
 #include<string>
 #include<cmath>
+#include "Victim.hpp"
 class Sorcerer
 {
 private:
@@ -11,6 +12,10 @@ private:
 public:
     Sorcerer(std::string in_name, std::string in_title);
     ~Sorcerer();
+
+   void polymorph(Victim::Victim const &) const;
+  //POLYMORPH DIFFERENT THAN A GENERIC VICTIM
+  // void polymorph();
 
 //GETTERS
     std::string getName() const;
