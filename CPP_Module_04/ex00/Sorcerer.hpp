@@ -1,9 +1,8 @@
 #ifndef SORCERER_HPP
 #define SORCERER_HPP
+#include "Victim.hpp"
 #include<iostream>
 #include<string>
-#include<cmath>
-#include "Victim.hpp"
 class Sorcerer
 {
 private:
@@ -13,9 +12,10 @@ public:
     Sorcerer(std::string in_name, std::string in_title);
     ~Sorcerer();
 
-   void polymorph(Victim::Victim const &) const;
-  //POLYMORPH DIFFERENT THAN A GENERIC VICTIM
-  // void polymorph();
+    Sorcerer(const Sorcerer &to_copy);
+    Sorcerer & operator = (const Sorcerer &to_copy);
+
+   void polymorph(Victim const & victim) const;
 
 //GETTERS
     std::string getName() const;

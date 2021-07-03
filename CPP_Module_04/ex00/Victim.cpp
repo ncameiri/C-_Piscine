@@ -12,6 +12,15 @@ Victim::~Victim()
      <<" just died for no apparent reason!\n";
 }
 
+Victim::Victim(const Victim &to_copy){
+   *this=to_copy;
+}
+
+Victim &Victim::operator =(Victim const &to_copy){
+    this->Name = to_copy.Name;
+    return (*this);
+}
+
 std::string Victim::getName() const{
     return(this->Name);
 }
