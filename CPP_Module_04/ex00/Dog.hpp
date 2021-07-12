@@ -8,6 +8,8 @@ private:
 public:
     Dog(/* args */);
     ~Dog();
+    Dog (Dog const &to_copy);
+    Dog & operator=(Dog const &to_copy);
 };
 
 

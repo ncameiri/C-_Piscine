@@ -1,9 +1,6 @@
 {
     "files.associations": {
-        
-           
-                "random": "c"
-            
-        
+        "random": "c",
+        "iosfwd": "cpp"
     }
 }
