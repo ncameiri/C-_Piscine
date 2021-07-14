@@ -3,6 +3,7 @@
 #include "Animal.hpp"
 
 
+
 int main()
 {
     const Animal* meta = new Animal();
@@ -16,4 +17,6 @@ int main()
     delete meta;
     delete j;
     delete i;
+
+   return 0;
 }

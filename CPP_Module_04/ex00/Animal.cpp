@@ -20,14 +20,7 @@ Animal &Animal::operator= (Animal const &to_copy){
 }
 
 void Animal::makeSound() const{
-    if(this->type == "Dog")
-        std::cout<<"auf auf\n";
-    else if(this->type == "Cat")
-        std::cout<<"ANIM CALL - miau miau\n";
-    else
         std::cout<<"Wrong Animal Sound\n";
-
-
 }
 
 std::string Animal::getType() const{

@@ -9,7 +9,7 @@ public:
     WrongCat(/* args */);
     ~WrongCat();
    
-   void makeSound();
+   void makeSound()const;
 };
 
 

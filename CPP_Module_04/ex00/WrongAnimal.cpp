@@ -8,6 +8,6 @@ WrongAnimal::~WrongAnimal()
 {
 }
 
-void WrongAnimal::makeSound(){
+void WrongAnimal::makeSound()const{
     std::cout<<"Wrong Animal Sound -> Soundzz\n";
 }

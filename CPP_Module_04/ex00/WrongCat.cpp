@@ -8,6 +8,6 @@ WrongCat::~WrongCat()
 {
 }
 
-void WrongCat::makeSound(){
+void WrongCat::makeSound()const{
     std::cout<<"Wrong Cat Call -> Soundzz\n";
 }

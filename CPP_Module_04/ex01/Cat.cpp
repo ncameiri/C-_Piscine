@@ -1,10 +1,12 @@
 #include "Cat.hpp"
 Cat::Cat(/* args */):Animal("Cat")
 {
+    this->brain = new Brain();
 }
 
 Cat::~Cat()
 {
+    delete this->brain;
 }
 
 Cat::Cat (Cat const &to_copy):Animal("Cat"){

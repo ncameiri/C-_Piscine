@@ -9,7 +9,9 @@ public:
     WrongAnimal();
     WrongAnimal(std::string type_set);
     ~WrongAnimal();
-    WrongAnimal & operator =(WrongAnimal const &to_copy);
+
+    void makeSound()const;
+    
     
 };
 
