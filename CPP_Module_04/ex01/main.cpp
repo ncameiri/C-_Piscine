@@ -6,7 +6,16 @@
 
 int main()
 {
-    const Animal* meta = new Animal();
+    Animal* animal_array[10];
+    
+    for (int i=0;i<5;i++){
+        animal_array[i] = new Dog();
+    }
+    for (int i=5;i<10;i++){
+        animal_array[i] = new Cat();
+    }
+
+    /*const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
     std::cout << j->getType() << " " << std::endl;
@@ -16,7 +25,7 @@ int main()
     meta->makeSound(); 
     delete meta;
     delete j;
-    delete i;
+    delete i;*/
 
    return 0;
 }
