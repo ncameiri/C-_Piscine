@@ -5,9 +5,9 @@ class Animal
 {
 protected:
     std::string type;
-public:
     Animal();
     Animal(std::string type_set);
+public:
     virtual ~Animal();
     Animal(Animal const &to_copy);
     Animal & operator =(Animal const &to_copy);

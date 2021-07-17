@@ -6,11 +6,11 @@
 
 int main()
 {
-    const Animal* animal_array[10];
+    const Animal aa;
+    const Animal *animal_array[10];
+    const Animal * j=new Cat();
 
-    //const Animal * j=new Cat();
-
-    //delete j;
+    delete j;
     for (int i=0;i<5;i++){
         animal_array[i] = new Dog();
     }
