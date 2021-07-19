@@ -6,7 +6,7 @@
 
 int main()
 {
-    const Animal aa;
+    //const Animal aa;
     const Animal *animal_array[10];
     const Animal * j=new Cat();
 
