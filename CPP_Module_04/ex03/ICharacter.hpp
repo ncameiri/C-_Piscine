@@ -7,7 +7,7 @@ class ICharacter
 private:
     /* data */
 public:
-    ICharacter(/* args */);
+    //ICharacter(/* args */);
     virtual ~ICharacter();
 
     virtual std::string const & getName() const = 0;

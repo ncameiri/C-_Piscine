@@ -1,0 +1,1 @@
+clang++ -Werror -Wextra -Wall -fsanitize=address -g3 -std=c++98 .cpp

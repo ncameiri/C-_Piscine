@@ -1,5 +1,9 @@
 #include "Character.hpp"
-Character::Character(/* args */)
+Character::Character(std::string name_in)
+{
+}
+
+Character::Character(const Character &ref)
 {
 }
 

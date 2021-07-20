@@ -6,8 +6,8 @@
 #include "Cure.hpp"
 #include "Character.hpp"
 int main(){
-   /* IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
+    IMateriaSource* src = new MateriaSource();
+    /*src->learnMateria(new Ice());
     src->learnMateria(new Cure());
     ICharacter* me = new Character("me");
     AMateria* tmp;

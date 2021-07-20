@@ -1,9 +1,9 @@
 
-#include "MateriaSource.hpp"
-MateriaSource::MateriaSource(/* args */)
+/*#include "MateriaSource.hpp"
+MateriaSource::MateriaSource()
 {
 }
 
 MateriaSource::~MateriaSource()
 {
-}
+}*/
