@@ -10,9 +10,10 @@ Cat::~Cat()
     std::cout<<"Cat default destructor\n";
     delete this->brain;
 }
-
+//Como e deep vai criar um novo brain
 Cat::Cat (Cat const &to_copy):Animal("Cat"){
-    *this = to_copy;
+    Brain const *tmp = to_copy.brain; 
+    this->brain = new Brain(*tmp);
 }
 
 Cat &Cat::operator= (Cat const &to_copy){

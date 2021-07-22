@@ -9,7 +9,7 @@ public:
     Animal();
     Animal(std::string type_set);
     virtual ~Animal();
-    Animal(Animal const &to_copy);
+    Animal( const Animal &to_copy);
     Animal & operator =(Animal const &to_copy);
 
     //MAKE SOUND

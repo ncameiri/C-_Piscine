@@ -8,19 +8,20 @@ class AMateria;
 class AMateria
 {
 private:
-    /* data */
+    std::string			type;
 public:
     AMateria(std::string const & type);
     AMateria(/* args */);
     virtual ~AMateria();
 
+    AMateria    &operator=(const AMateria &to_copy);
     //RETURNS MATERIA TYPE
     std::string const & getType() const;
     
-    unsigned int get_xp() const;
-    
+   
+
     virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+    virtual void use(ICharacter &target);
 };
 
 

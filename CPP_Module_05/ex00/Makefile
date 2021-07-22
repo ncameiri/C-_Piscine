@@ -1,7 +1,6 @@
-SRCS	= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
-		 MateriaSource.cpp amateria_my.cpp
+SRCS	= main.cpp Bureaucrat.cpp 
 
-NAME	= ex03
+NAME	= ex01
 
 OBJ		= $(SRCS:.cpp=.o)
 

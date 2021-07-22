@@ -1,13 +1,14 @@
 #ifndef CURE_HPP
 #define CURE_HPP
-#include<iostream>
-class Cure
+#include"AMateria.hpp"
+class Cure: public AMateria
 {
-private:
-    /* data */
+
 public:
     Cure(/* args */);
-    ~Cure();
+    virtual ~Cure();
+    AMateria    *clone() const;
+    void		use(ICharacter &target);
 };
 
 

@@ -20,7 +20,7 @@ int main()
     delete i;
 
 
-    std::cout << "\nTESTS WITH WORNG CLASSES" << std::endl;
+    std::cout << "\nTESTS WITH WRONG CLASSES" << std::endl;
     const WrongAnimal* k = new WrongCat();
     k->makeSound();
     delete k;

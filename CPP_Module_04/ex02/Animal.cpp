@@ -12,7 +12,7 @@ Animal::~Animal()
     std::cout<<"Animal default destructor\n";
 }
 
-Animal::Animal (Animal const &to_copy){
+Animal::Animal (const Animal  &to_copy){
     *this = to_copy;
 }
 

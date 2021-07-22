@@ -12,7 +12,9 @@ Dog::~Dog()
 }
 
 Dog::Dog (Dog const &to_copy):Animal("Dog"){
-    *this = to_copy;
+   std::cout<<"Dog Copy constructor\n";
+     Brain const *tmp = to_copy.brain; 
+    this->brain = new Brain(*tmp);
 }
 
 Dog &Dog::operator= (Dog const &to_copy){
