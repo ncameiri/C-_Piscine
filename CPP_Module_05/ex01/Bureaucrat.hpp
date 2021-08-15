@@ -34,6 +34,6 @@ public:
 	};
 
 };
-std::ostream& operator<<(std::ostream& outsend, const Bureaucrat& bur);
 
+std::ostream& operator<<(std::ostream& outsend, const Bureaucrat& bur);
 #endif
