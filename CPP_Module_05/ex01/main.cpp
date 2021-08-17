@@ -31,6 +31,7 @@ int main(void) {
 		a.signForm(form);
 
 		std::cout << form << std::endl;
+		
 	}
 	catch (std::exception& err)
 	{
@@ -39,7 +40,7 @@ int main(void) {
 	std::cout << std::endl;
 
 	
-	std::cout << " Test Invalid " << std::endl;
+	std::cout << "Test Invalid " << std::endl;
 	try 
 	{
 		Form form("Inv Form", -3, 10);

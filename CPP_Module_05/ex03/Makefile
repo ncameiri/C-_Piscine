@@ -1,11 +1,11 @@
 SRCS	= main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp\
-			RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+			RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
-NAME	= ex02
+NAME	= ex03
 
 OBJ		= $(SRCS:.cpp=.o)
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror 
 
 .SILENT:
 
