@@ -1,4 +1,4 @@
-SRCS	= main.cpp Bureaucrat.cpp 
+SRCS	= main.cpp Scalar.cpp 
 
 NAME	= ex00
 
