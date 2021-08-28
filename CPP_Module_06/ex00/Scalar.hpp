@@ -8,14 +8,7 @@
 #include <cmath>
 #include <limits>
 #include <climits>
-//INT pode ir a char desde 32-126 
-//INT MAX __INT MIN
-//No caso de float ou doble parte inteira para int e se possivel para char
-//Descartar 0's a esquerda
-// inf inff com +-
-//nan e nanf com +-
-//Nao permitir duplos sinais
-//precision 7
+
 class Scalar
 {
 private:
