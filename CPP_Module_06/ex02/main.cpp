@@ -1,6 +1,7 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+//https://en.cppreference.com/w/cpp/language/dynamic_cast
 Base* generate(void) {
     Base* base;
     int random;
@@ -68,6 +69,7 @@ int main(){
         std::cout<<"identify *Base: ";
 		identify(*base);
         std::cout<<"\n\n";
+		
 		delete base;
     }
 }

@@ -56,7 +56,7 @@ bool Scalar::char_conv() {
 }
 
 int Scalar::check_others_num(std::string in){
-    std::string to_check[]{
+    std::string to_check [6] ={
         "nan",
         "nanf",
         "+inf",
