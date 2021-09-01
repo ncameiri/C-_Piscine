@@ -37,7 +37,7 @@ int main(int, char**)
     }
     try
     {
-        std::cout<<"try acess to index MAX_VAL ( wrong)"<<std::endl;
+        std::cout<<"try acess to index MAX_VAL (wrong)"<<std::endl;
         numbers[MAX_VAL] = 0;
     }
     catch(const std::exception& e)
