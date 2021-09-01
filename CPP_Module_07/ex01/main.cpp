@@ -20,29 +20,30 @@ void char_array_test(){
     std::cout<<"char array :          ";
     for(int i=0; i<3 ; i++)
         std::cout<<" elem "<<i<<": "<<a[i];
-    ::iter(a,3,all_k);
+    iter(a,3,all_k);
     std::cout<<"\nchar array after iter:";
     for(int i=0; i<3 ; i++)
         std::cout<<" elem "<<i<<": "<<a[i];
+    std::cout<<std::endl;
+}
 
-
-std::cout<<std::endl;
-
+void int_array_test(){
+    int b[3]={3,9,10};
+    std::cout<<"int array :          ";
+    for(int i=0; i<3 ; i++)
+        std::cout<<" elem "<<i<<": "<<b[i];
+    std::cout<<std::endl;
+    iter(b,3,check_even);
+    iter(b,3,num_2times);
+    std::cout<<"\nint array after iter:";
+    for(int i=0; i<3 ; i++)
+        std::cout<<" elem "<<i<<": "<<b[i];
 }
 
 int main(){
-
-int b[3]={3,9,10};
-std::cout<<"int array :          ";
-    for(int i=0; i<3 ; i++)
-    std::cout<<" elem "<<i<<": "<<b[i];
+char_array_test();
+std::cout<<std::endl<<std::endl;
+int_array_test();
 std::cout<<std::endl;
-::iter(b,3,check_even);
-::iter(b,3,num_2times);
-std::cout<<"\nint array after iter:";
-for(int i=0; i<3 ; i++)
-    std::cout<<" elem "<<i<<": "<<b[i];
-
-
-
+return (0);
 }

@@ -1,6 +1,6 @@
 SRCS	= main.cpp
 
-NAME	= ex02
+NAME	= ex00
 
 OBJ		= $(SRCS:.cpp=.o)
 
