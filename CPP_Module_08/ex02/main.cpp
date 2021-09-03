@@ -1,7 +1,22 @@
 #include "mutantstack.hpp"
+void testes(){
+    MutantStack<int> st1;
+   
+    st1.push(42);
+    st1.push(3);
+    std::cout << "top call : "<< st1.top()<<std::endl;
+    std::cout << "size call : "<< st1.size()<<std::endl;
+
+    MutantStack<int>::iterator  it = st1.begin();
+    MutantStack<int>::iterator  ite = st1.end();
+    std::cout<< "\n begin call : "<<*it<<
+    "\n end call : "<<*(ite - 1)<<std::endl;
+};
+
 int main()
 {
-    MutantStack<int> mstack;
+    testes();
+    /*MutantStack<int> mstack;
     
     mstack.push(5);
     mstack.push(17);
@@ -27,6 +42,6 @@ int main()
         std::cout << *it << std::endl;
         ++it; 
     }
-    std::stack<int> s(mstack);
+    std::stack<int> s(mstack);*/
     return 0;
 }
