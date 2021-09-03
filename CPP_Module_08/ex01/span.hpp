@@ -1,5 +1,5 @@
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef Span_HPP
+# define Span_HPP
 
 #include <iostream>
 #include <algorithm>
@@ -10,17 +10,18 @@
 #include <vector>
 #include <deque>
 
-class span
+
+class Span
 {
     private:
        std::vector<int> data;
        unsigned int N;
     public:
-        span();
-        span(unsigned int _N);
-        span(span const& to_copy);
-        ~span();
-        span& operator=(span const& to_copy);
+        Span();
+        Span(unsigned int _N);
+        Span(Span const& to_copy);
+        ~Span();
+        Span& operator=(Span const& to_copy);
 
         void addNumber(int n);
 
@@ -30,7 +31,7 @@ class span
     {
     	const char* what(void) const throw ();
     };
-    class span_impossible : public std::exception
+    class Span_impossible : public std::exception
     {
     	const char* what(void) const throw ();
     };

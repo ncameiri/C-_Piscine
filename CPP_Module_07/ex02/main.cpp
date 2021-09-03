@@ -55,7 +55,7 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    std::cout<<"Teste for length getter\nlen: "<<numbers.size()<<std::endl;
+    std::cout<<"\nTest for length getter\nlen: "<<numbers.size()<<std::endl;
 
     delete [] mirror;//
     return 0;
