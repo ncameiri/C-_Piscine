@@ -30,7 +30,7 @@ int main(){
         std::cout << e.what() << "\n";
     }
     el1.addNumber(50);
-    el1.addNumber(60);
+    el1.addNumber(61);
     el1.addNumber(60);
        try{
      std::cout<<"MAIN :"<<el1.shortestSpan();

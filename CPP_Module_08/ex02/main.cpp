@@ -15,8 +15,8 @@ void testes(){
 
 int main()
 {
-    testes();
-    /*MutantStack<int> mstack;
+    //testes();
+    MutantStack<int> mstack;
     
     mstack.push(5);
     mstack.push(17);
@@ -42,6 +42,6 @@ int main()
         std::cout << *it << std::endl;
         ++it; 
     }
-    std::stack<int> s(mstack);*/
+    std::stack<int> s(mstack);
     return 0;
 }
