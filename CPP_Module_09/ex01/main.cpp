@@ -25,12 +25,10 @@ int main(int argc, char **argv)
         ss >> temp;
         if (temp.find_first_not_of("0123456789") == std::string::npos)
         {
-            //std::cout << "e numer" << std::endl;
             numbs.push(temp.c_str()[0] - 48);
         }
         if (temp.find_first_not_of("+-/*") == std::string::npos)
         {
-            //std::cout << "e opera" << std::endl;
             int temp_num2 = numbs.top();
             numbs.pop();
             if (numbs.empty())
@@ -57,9 +55,7 @@ int main(int argc, char **argv)
                 
             }
         }
-
-        std::cout << temp << std::endl;
     }
-    std::cout<< numbs.top();
+    std::cout<< numbs.top() <<std::endl;
     return 0;
 }

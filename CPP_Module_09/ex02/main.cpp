@@ -2,23 +2,16 @@
 #include <iomanip>
 #include <vector>
 #include <list>
-#include <time.h>
-#include <unistd.h>
-#include <cstdlib>
-#define __STDC_LIMIT_MACROS
 #include <stdint.h>
 #include <algorithm>
-#include <sys/time.h>
 
-// Usar vector https://cplusplus.com/reference/algorithm/sort/
-// Usar list https://en.cppreference.com/w/cpp/container/list/sort
-
-struct TimeStruct{
-     struct timespec beg_cont1;
-     struct timespec beg_cont2;
-     struct timespec end_cont1;
-     struct timespec end_cont2;
-}_times;
+struct TimeStruct
+{
+    struct timespec beg_cont1;
+    struct timespec beg_cont2;
+    struct timespec end_cont1;
+    struct timespec end_cont2;
+} _times;
 
 bool check_input(char **argv)
 {
@@ -49,59 +42,53 @@ bool check_input(char **argv)
     return false;
 }
 
-void print_result( void)
-{ 
-   //struct timespec begin = _times.end_cont1;
-// int opt;
-//std::string opt1 = "container 1" time elapsed etc...
-   /*
+void print_result(int opt, int argc)
+{
+    struct timespec begin = _times.beg_cont1;
+    struct timespec end = _times.end_cont1;
+    std::string cont_opt = "std::vector";
+    if (opt == 1)
+    {
+        begin = _times.beg_cont2;
+        end = _times.end_cont2;
+        cont_opt = "std::list  ";
+    }
+
     long seconds = end.tv_sec - begin.tv_sec;
     long nanoseconds = end.tv_nsec - begin.tv_nsec;
-    double elapsed = seconds + nanoseconds*1e-9;*/
+    double elapsed = seconds + nanoseconds * 1e-9;
+    std::cout << "Time to process a range of " << std::setw(4) << argc - 1 << " elements with "
+              << cont_opt << " : " << std::fixed << elapsed << "s" << std::endl;
 }
 
 void vector_func(int argc, char **argv)
 {
-    (void)argc;
-    (void)argv;
-
     std::vector<int> vect;
-   
     clock_gettime(CLOCK_REALTIME, &_times.beg_cont1);
     for (int i = 1; i < argc; i++)
     {
         vect.push_back(atoi(argv[i]));
     }
-    for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); ++it)
-        std::cout << ' ' << *it;
     std::sort(vect.begin(), vect.end());
-    std::cout << "\nAFTER sort\n";
+    clock_gettime(CLOCK_REALTIME, &_times.end_cont1);
+    //Print after Sort Without spending time
+    std::cout << "\nAfter:  ";
     for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); ++it)
         std::cout << ' ' << *it;
-    clock_gettime(CLOCK_REALTIME, &_times.end_cont1);
+    std::cout << std::endl;
 }
 
 void list_func(int argc, char **argv)
 {
-    (void)argc;
-    (void)argv;
 
-   
     std::list<int> lis;
     clock_gettime(CLOCK_REALTIME, &_times.beg_cont2);
     for (int i = 1; i < argc; i++)
     {
         lis.push_back(atoi(argv[i]));
     }
-    for (std::list<int>::iterator it = lis.begin(); it != lis.end(); ++it)
-        std::cout << ' ' << *it;
-    std::cout << "\nAFTER sort\n";
     lis.sort();
-    for (std::list<int>::iterator it = lis.begin(); it != lis.end(); ++it)
-        std::cout << ' ' << *it;
-    clock_gettime(CLOCK_REALTIME, &_times.end_cont1);
-
-
+    clock_gettime(CLOCK_REALTIME, &_times.end_cont2);
 }
 int main(int argc, char **argv)
 {
@@ -112,19 +99,15 @@ int main(int argc, char **argv)
         std::cout << "Error" << std::endl;
         return 1;
     }
-
-    // vector_func(argc, argv);
+    std::cout << "Before: ";
+    for (int i = 1; i < argc; i++)
+    {
+        std::cout << " " << argv[i];
+    }
     list_func(argc, argv);
+    vector_func(argc, argv);
+    print_result(1, argc);
+    print_result(0, argc);
 
-    /*struct timespec begin_cont1, end_cont1;
-    clock_gettime(CLOCK_REALTIME, &begin_cont1);
-    std::cout<<"";
-     usleep(1);
-   clock_gettime(CLOCK_REALTIME, &end_cont1);
-   long seconds = end.tv_sec - begin.tv_sec;
-    long nanoseconds = end.tv_nsec - begin.tv_nsec;
-    double elapsed = seconds + nanoseconds*1e-9;
-    //std::setw(10)<<
-    std::cout<<std::fixed<<std::setprecision(10)<< elapsed<<"s "<<argv[0];*/
     return 0;
 }

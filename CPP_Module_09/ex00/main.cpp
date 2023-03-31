@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     std::string line;
     // Jump csv Headers
     std::getline(database, line);
-    (void)**argv;
+
     while (std::getline(database, line))
     {
         int p = line.find(',');
@@ -70,8 +70,7 @@ int main(int argc, char **argv)
 
     std::map<struct std::tm, double>::iterator it;
 
-    it = database_record.upper_bound(str_todate("2022-03-26"));
-    it--;
+ 
 
     std::ifstream input_file(argv[1]);
     // Jump txt Headers
