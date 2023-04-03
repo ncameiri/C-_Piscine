@@ -17,9 +17,8 @@ re: fclean all
 
 clean:
 		rm -f $(OBJ)
-
+		
 fclean:
 		rm -f $(OBJ) $(NAME) 
-
 
 .PHONY: all

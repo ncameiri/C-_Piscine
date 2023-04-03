@@ -21,5 +21,4 @@ clean:
 fclean:
 		rm -f $(OBJ) $(NAME) 
 
-
 .PHONY: all

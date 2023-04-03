@@ -1,5 +1,4 @@
 NAME = btc
-#STD_NAME = std_containers
 CC = c++
 C_FLAGS = -std=c++98 -Wall -Wextra -Werror 
 FILES = BitcoinExchange
@@ -11,9 +10,6 @@ all : $(NAME)  #$(STD_NAME)
 $(NAME) : $(OBJ)
 	${CC} ${C_FLAGS} -o $(NAME) $(OBJ) main.cpp
 
-#$(STD_NAME) : $(OBJ) 
-#	${CC} -o $(STD_NAME) $(OBJ) std_main.cpp
-
 $(OBJ): $(SRC)
 	${CC} ${C_FLAGS} -o $@ -c $(@:.o=.cpp)   
 
@@ -24,6 +20,5 @@ clean:
 
 fclean:
 		rm -f $(OBJ) $(NAME) 
-
 
 .PHONY: all

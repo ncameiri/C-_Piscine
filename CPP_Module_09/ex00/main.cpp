@@ -62,7 +62,8 @@ int main(int argc, char **argv)
     while (std::getline(database, line))
     {
         int p = line.find(',');
-        const char *str = line.substr(p + 1, line.size() - p).c_str();
+        const char *str;
+        str =  line.substr(p + 1, line.size() - p).c_str();
         double num_float = std::atof(str);
         struct std::tm tm = str_todate(line.substr(0, 10).c_str());
         database_record[tm] = num_float;
