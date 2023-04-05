@@ -23,11 +23,11 @@ int main(int argc, char **argv)
     {
         std::string temp;
         ss >> temp;
-        if (temp.find_first_not_of("0123456789") == std::string::npos)
+        if (temp.find_first_not_of("0123456789") == std::string::npos && temp != "\0")
         {
             numbs.push(temp.c_str()[0] - 48);
         }
-        if (temp.find_first_not_of("+-/*") == std::string::npos)
+        if (temp.find_first_not_of("+-/*") == std::string::npos && temp != "\0")
         {
             int temp_num2 = numbs.top();
             numbs.pop();

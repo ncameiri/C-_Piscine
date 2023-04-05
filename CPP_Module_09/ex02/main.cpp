@@ -4,6 +4,7 @@
 #include <list>
 #include <stdint.h>
 #include <algorithm>
+// https://www.geeksforgeeks.org/merge-sort/
 
 struct TimeStruct
 {
@@ -12,6 +13,64 @@ struct TimeStruct
     struct timespec end_cont1;
     struct timespec end_cont2;
 } _times;
+
+
+ std::vector<int> merge_vector(std::vector<int> left, std::vector<int> right){
+    if(*left.begin() > *right.begin()){
+        right.insert(right.end(),left.begin(), left.end());
+        return right;
+    }
+    else {
+         left.insert(left.end(),right.begin(), right.end());
+        return left;
+    }
+ }
+
+
+
+ std::list<int> merge_list(std::list<int> left, std::list<int> right){
+    if(*left.begin() > *right.begin()){
+        right.merge(left);
+        return right;
+    }
+    else {
+        left.merge(right);
+        return left;
+    }
+ }
+
+std::vector<int> merge_sorting_vector(std::vector<int> full_vector)
+{
+    std::vector<int>::iterator begin_it = full_vector.begin();
+    std::vector<int>::iterator end_it = full_vector.end();
+    std::vector<int>::iterator middle_it = full_vector.begin();
+   
+    int middle_point = full_vector.size() / 2;
+    std::advance(middle_it, middle_point);
+    std::vector<int> left(begin_it, middle_it);
+    std::vector<int> right(middle_it, end_it);
+
+    if(left.size() < 2 || right.size() < 2)
+        return merge_vector(left,right);
+    return merge_vector(merge_sorting_vector(left),merge_sorting_vector(right));
+}
+
+std::list<int> merge_sorting_list(std::list<int> full_list)
+{
+    std::list<int>::iterator begin_it = full_list.begin();
+    std::list<int>::iterator end_it = full_list.end();
+    std::list<int>::iterator middle_it = full_list.begin();
+   
+    int middle_point = full_list.size() / 2;
+    std::advance(middle_it, middle_point);
+    std::list<int> left(begin_it, middle_it);
+    std::list<int> right(middle_it, end_it);
+
+    if(left.size() < 2 || right.size() < 2)
+        return merge_list(left,right);
+    return merge_list(merge_sorting_list(left),merge_sorting_list(right));
+}
+
 
 bool check_input(char **argv)
 {
@@ -71,7 +130,7 @@ void vector_func(int argc, char **argv)
     }
     std::sort(vect.begin(), vect.end());
     clock_gettime(CLOCK_REALTIME, &_times.end_cont1);
-    //Print after Sort Without spending time
+    // Print after Sort Without spending time
     std::cout << "\nAfter:  ";
     for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); ++it)
         std::cout << ' ' << *it;
@@ -87,14 +146,14 @@ void list_func(int argc, char **argv)
     {
         lis.push_back(atoi(argv[i]));
     }
-    lis.sort();
+    merge_sorting_list(lis);
     clock_gettime(CLOCK_REALTIME, &_times.end_cont2);
 }
 int main(int argc, char **argv)
 {
     (void)argc;
     (void)argv;
-    if (argc < 2 || argc > 3001 || check_input(argv))
+    if (argc < 2 || check_input(argv))
     {
         std::cout << "Error" << std::endl;
         return 1;

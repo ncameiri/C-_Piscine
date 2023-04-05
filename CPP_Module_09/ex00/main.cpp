@@ -109,7 +109,7 @@ int main(int argc, char **argv)
             continue;
         }
 
-        if (atof(number.c_str()) > 2147483647)
+        if (atof(number.c_str()) > 2147483647 || number.size() > 12)
         {
             std::cout << "Error: too large a number." << std::endl;
             continue;
