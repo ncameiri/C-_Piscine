@@ -59,23 +59,10 @@ std::vector<int> merge_sorting_vector(std::vector<int> full_vector)
 
 std::list<int> merge_list(std::list<int> left, std::list<int> right)
 {
-    /* if (*left.begin() > *right.begin())
-    {
-        right.merge(left);
-        return right;
-    }
-    else
-    {
-        left.merge(right);
-        return left;
-    } */
-
     std::list<int> return_list;
     std::list<int>::iterator left_it = left.begin();
     std::list<int>::iterator right_it = right.begin();
-
     //Merge by Ascending order
-
     while (left_it != left.end() && right_it != right.end())
     {
         if (*left_it < *right_it)
@@ -112,14 +99,10 @@ std::list<int> merge_sorting_list(std::list<int> full_list)
     std::list<int>::iterator begin_it = full_list.begin();
     std::list<int>::iterator end_it = full_list.end();
     std::list<int>::iterator middle_it = full_list.begin();
-
     int middle_point = full_list.size() / 2;
     std::advance(middle_it, middle_point);
     std::list<int> left(begin_it, middle_it);
     std::list<int> right(middle_it, end_it);
-
-    /*if (left.size() < 2 || right.size() < 2)
-        return merge_list(left, right);*/
     return merge_list(merge_sorting_list(left), merge_sorting_list(right));
 }
 
@@ -174,14 +157,19 @@ void print_result(int opt, int argc)
 void vector_func(int argc, char **argv)
 {
     std::vector<int> vect;
+    bool added_aux_el = false;
     clock_gettime(CLOCK_REALTIME, &_times.beg_cont1);
     for (int i = 1; i < argc; i++)
     {
         vect.push_back(atoi(argv[i]));
     }
-    if (vect.size() % 2 != 0)
+    if (vect.size() % 2 != 0){
         vect.insert(vect.begin(), -1);
+        added_aux_el = true;
+    }
     std::vector<int> res = merge_sorting_vector(vect);
+    if(added_aux_el)
+        res.erase(res.begin());
     clock_gettime(CLOCK_REALTIME, &_times.end_cont1);
     // Print after Sort Without spending time
     std::cout << "\nAfter:  ";
@@ -194,23 +182,31 @@ void list_func(int argc, char **argv)
 {
 
     std::list<int> lis;
+    bool added_aux_el = false;
     clock_gettime(CLOCK_REALTIME, &_times.beg_cont2);
     for (int i = 1; i < argc; i++)
     {
         lis.push_back(atoi(argv[i]));
     }
-    if (lis.size() % 2 != 0)
+    if (lis.size() % 2 != 0){
         lis.push_front(-1);
+        added_aux_el = true;
+    
+    }
     std::list<int> res = merge_sorting_list(lis);
-    std::cout << "\nAfter list:  ";
-    for (std::list<int>::iterator it = res.begin(); it != res.end(); ++it)
-        std::cout << ' ' << *it;
+    if (added_aux_el)
+        res.erase(res.begin());
     clock_gettime(CLOCK_REALTIME, &_times.end_cont2);
+    //                             |  |
+    //                             |  |
+    //Uncomment to see sorted list V  V
+    // std::cout << "\nAft_L:  ";
+    // for (std::list<int>::iterator it = res.begin(); it != res.end(); ++it)
+    //     std::cout << ' ' << *it;
 }
 int main(int argc, char **argv)
 {
-    (void)argc;
-    (void)argv;
+
     if (argc < 2 || check_input(argv))
     {
         std::cout << "Error" << std::endl;
