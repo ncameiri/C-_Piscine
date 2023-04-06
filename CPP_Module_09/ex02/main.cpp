@@ -16,93 +16,50 @@ struct TimeStruct
 
 std::vector<int> merge_vector(std::vector<int> left, std::vector<int> right)
 {
-    /* if(left.size() > 1 && left[0] > left[1])
-     {
-         int temp = left[0];
-         left[0] = left[1];
-         left[1] = temp;
-     }
-     if(right.size() > 1 && right[0] > right[1])
-     {
-         int temp = right[0];
-         right[0] = right[1];
-         right[1] = temp;
-     }
-     if(*left.begin() > *right.begin()){
-         right.insert(right.end() ,left.begin(), left.end());
-         return right;
-     }
-     else {
-          left.insert(left.end(),right.begin(), right.end());
-         return left;
-     }*/
-
     std::vector<int> return_vect(left.size() + right.size());
-    int i = -1;
-    unsigned int l = 0, r = 0;
-    while (++i < (int)(left.size() + right.size()))
+    //Don't work with iterators
+    //Merge by Ascending order
+    unsigned int i = 0,l = 0, r = 0;
+    while (l < left.size() && r < right.size())
     {
         if (left[l] < right[r])
         {
-            return_vect[i++] = left[l++];
+            return_vect[i] = left[l++];
+
         }
         else
         {
-            return_vect[i++] = right[r];
+            return_vect[i] = right[r++];
         }
-        if (r == right.size())
-        {
-            while (l != left.size())
+        i++;
+    }
+      while (l  < left.size() )
             {
                 return_vect[i++] = left[l++];
             }
-        }
-        if (l == left.size())
-        {
-            while (r != right.size())
+      while (r  < right.size()  )
             {
                 return_vect[i++] = right[r++];
             }
-        }
-    }
     return return_vect;
 }
 
 std::vector<int> merge_sorting_vector(std::vector<int> full_vector)
 {
+    if (full_vector.size() < 2){
+        return full_vector;
+    }
     std::vector<int>::iterator begin_it = full_vector.begin();
     std::vector<int>::iterator end_it = full_vector.end();
-    if (full_vector.size() < 2)
-        return full_vector;
-
     int middle_point = full_vector.size() / 2;
-    /*if(middle_point == 0)
-        return full_vector;*/
     std::vector<int> left(begin_it, begin_it + middle_point);
     std::vector<int> right(begin_it + middle_point, end_it);
-
-    /* if(left.size() < 2 || right.size() < 2){
-       if(left.size() > 1 && left[0] > left[1])
-    {
-        int temp = left[0];
-        left[0] = left[1];
-        left[1] = temp;
-        return( merge_vector(merge_sorting_vector(left),right));
-    }
-    if(right.size() > 1 && right[0] > right[1])
-    {
-        int temp = right[0];
-        right[0] = right[1];
-        right[1] = temp;
-        return( merge_vector(merge_sorting_vector(right),left));
-    }
-    }*/
     return merge_vector(merge_sorting_vector(left), merge_sorting_vector(right));
 }
 
 std::list<int> merge_list(std::list<int> left, std::list<int> right)
 {
-    if (*left.begin() > *right.begin())
+    /* if (*left.begin() > *right.begin())
     {
         right.merge(left);
         return right;
@@ -111,11 +68,47 @@ std::list<int> merge_list(std::list<int> left, std::list<int> right)
     {
         left.merge(right);
         return left;
+    } */
+
+    std::list<int> return_list;
+    std::list<int>::iterator left_it = left.begin();
+    std::list<int>::iterator right_it = right.begin();
+
+    //Merge by Ascending order
+
+    while (left_it != left.end() && right_it != right.end())
+    {
+        if (*left_it < *right_it)
+        {
+            return_list.push_back(*left_it);
+            left_it++;
+
+        }
+        else
+        {
+            return_list.push_back(*right_it);
+            right_it++;
+            }
+
     }
+      while (left_it  != left.end() )
+            {
+                return_list.push_back(*left_it);
+                left_it++;
+            }
+      while (right_it  != right.end()  )
+            {
+               return_list.push_back(*right_it);
+                right_it++;
+            }
+    return return_list;
 }
 
 std::list<int> merge_sorting_list(std::list<int> full_list)
 {
+    if (full_list.size() < 2){
+        return full_list;
+    }
     std::list<int>::iterator begin_it = full_list.begin();
     std::list<int>::iterator end_it = full_list.end();
     std::list<int>::iterator middle_it = full_list.begin();
@@ -125,8 +118,8 @@ std::list<int> merge_sorting_list(std::list<int> full_list)
     std::list<int> left(begin_it, middle_it);
     std::list<int> right(middle_it, end_it);
 
-    if (left.size() < 2 || right.size() < 2)
-        return merge_list(left, right);
+    /*if (left.size() < 2 || right.size() < 2)
+        return merge_list(left, right);*/
     return merge_list(merge_sorting_list(left), merge_sorting_list(right));
 }
 
