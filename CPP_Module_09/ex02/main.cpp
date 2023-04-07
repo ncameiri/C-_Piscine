@@ -6,6 +6,8 @@
 #include <algorithm>
 // https://www.geeksforgeeks.org/merge-sort/
 
+
+
 struct TimeStruct
 {
     struct timespec beg_cont1;
@@ -221,6 +223,5 @@ int main(int argc, char **argv)
     vector_func(argc, argv);
     print_result(1, argc);
     print_result(0, argc);
-
     return 0;
 }
