@@ -29,31 +29,29 @@ int main(int argc, char **argv)
         }
         if (temp.find_first_not_of("+-/*") == std::string::npos && temp != "\0")
         {
-            int temp_num2 = numbs.top();
-            numbs.pop();
-            if (numbs.empty())
-            {
-                std::cout << "Error" << std::endl;
-                return 1;
-            }
-            int temp_num1 = numbs.top();
-            numbs.pop();
-            
-            switch(temp.c_str()[0]){
-                case '+':
-                    numbs.push(temp_num1 + temp_num2);
-                    break;
-                case '-':
-                    numbs.push(temp_num1 - temp_num2);
-                    break;
-                 case '/':
-                    numbs.push(temp_num1 / temp_num2);
-                    break;
-                case '*':
-                    numbs.push(temp_num1 * temp_num2);
-                    break;
-                
-            }
+                if (numbs.size() != 2)
+                {
+                    std::cout << "Error" << std::endl;
+                    return 1;
+                }
+                int temp_num2 = numbs.top();
+                numbs.pop();
+                int temp_num1 = numbs.top();
+                numbs.pop();
+                switch(temp.c_str()[0]){
+                    case '+':
+                        numbs.push(temp_num1 + temp_num2);
+                        break;
+                    case '-':
+                        numbs.push(temp_num1 - temp_num2);
+                        break;
+                     case '/':
+                        numbs.push(temp_num1 / temp_num2);
+                        break;
+                    case '*':
+                        numbs.push(temp_num1 * temp_num2);
+                        break;
+                }
         }
     }
     std::cout<< numbs.top() <<std::endl;
