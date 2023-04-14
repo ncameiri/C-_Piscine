@@ -19,41 +19,67 @@ int main(int argc, char **argv)
     std::stack<char> op;
     std::stringstream ss;
     ss << numbs_string;
+    int num_digits = 0, num_op = 0;
     while (!ss.eof())
     {
         std::string temp;
         ss >> temp;
-        if (temp.find_first_not_of("0123456789") == std::string::npos && temp != "\0")
+        if (temp.size() > 1)
         {
+            std::cout << "Error" << std::endl;
+            return 1;
+        }
+        else if (temp.find_first_not_of("0123456789") == std::string::npos && temp != "\0")
+        {
+            num_digits++;
             numbs.push(temp.c_str()[0] - 48);
         }
-        if (temp.find_first_not_of("+-/*") == std::string::npos && temp != "\0")
+        else if (temp.find_first_not_of("+-/*") == std::string::npos && temp != "\0")
         {
-                if (numbs.size() != 2)
-                {
-                    std::cout << "Error" << std::endl;
-                    return 1;
-                }
-                int temp_num2 = numbs.top();
+            num_op++;
+            if (numbs.size() <= 1)
+            {
+                std::cout << "Error" << std::endl;
+                return 1;
+            }
+            int temp_num1 = numbs.top();
+            if (numbs.size() > 1)
                 numbs.pop();
-                int temp_num1 = numbs.top();
+            else
+            {
+                std::cout << "Error" << std::endl;
+                return 1;
+            }
+            int temp_num2 = numbs.top();
+            if (numbs.size() >= 1)
                 numbs.pop();
-                switch(temp.c_str()[0]){
-                    case '+':
-                        numbs.push(temp_num1 + temp_num2);
-                        break;
-                    case '-':
-                        numbs.push(temp_num1 - temp_num2);
-                        break;
-                     case '/':
-                        numbs.push(temp_num1 / temp_num2);
-                        break;
-                    case '*':
-                        numbs.push(temp_num1 * temp_num2);
-                        break;
-                }
+            switch (temp.c_str()[0])
+            {
+            case '+':
+                numbs.push(temp_num1 + temp_num2);
+                break;
+            case '-':
+                numbs.push(temp_num1 - temp_num2);
+                break;
+            case '/':
+                numbs.push(temp_num1 / temp_num2);
+                break;
+            case '*':
+                numbs.push(temp_num1 * temp_num2);
+                break;
+            }
+        }
+        else
+        {
+            std::cout << "Error" << std::endl;
+            return 1;
         }
     }
-    std::cout<< numbs.top() <<std::endl;
+    if (numbs.empty() || num_digits != num_op + 1)
+    {
+        std::cout << "Error" << std::endl;
+        return 1;
+    }
+    std::cout << numbs.top() << std::endl;
     return 0;
 }
