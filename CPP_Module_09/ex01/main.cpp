@@ -59,10 +59,10 @@ int main(int argc, char **argv)
                 numbs.push(temp_num1 + temp_num2);
                 break;
             case '-':
-                numbs.push(temp_num1 - temp_num2);
+                numbs.push(temp_num2 - temp_num1);
                 break;
             case '/':
-                numbs.push(temp_num1 / temp_num2);
+                numbs.push(temp_num2 / temp_num1);
                 break;
             case '*':
                 numbs.push(temp_num1 * temp_num2);

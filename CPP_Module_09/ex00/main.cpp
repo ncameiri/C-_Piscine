@@ -1,10 +1,13 @@
 #include <iostream>
+#include <iomanip>
 #include <map>
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
 #include <ctime>
 #include <cstring>
+
+
 
 std::tm str_todate(const char *str)
 {
@@ -16,7 +19,7 @@ std::tm str_todate(const char *str)
     const char *month = month_str.c_str();
     std::string day_str = std::string(str).substr(8, 2);
     const char *day = day_str.c_str();
-    if (atoi(year) > 2023 || atoi(year) < 2001 || atoi(month) < 1 || atoi(month) > 12 || atoi(day) > 31 || atoi(day) < 1)
+    if (atoi(year) > 2023 || atoi(year) < 1970 || atoi(month) < 1 || atoi(month) > 12 || atoi(day) > 31 || atoi(day) < 1)
         error_generating = true;
 
     strptime(str, "%Y-%m-%d", &tm);
@@ -58,6 +61,8 @@ int main(int argc, char **argv)
     std::string line;
     // Jump csv Headers
     std::getline(database, line);
+    std::tm first_record;
+    bool first_record_bool=false;
 
     while (std::getline(database, line))
     {
@@ -66,16 +71,23 @@ int main(int argc, char **argv)
         str =  line.substr(p + 1, line.size() - p).c_str();
         double num_float = std::atof(str);
         struct std::tm tm = str_todate(line.substr(0, 10).c_str());
+        if(!first_record_bool){
+            first_record = tm;
+            first_record_bool = true;
+        }
         database_record[tm] = num_float;
     }
 
     std::map<struct std::tm, double>::iterator it;
 
- 
+    //Actual date
+    std::time_t t = std::time(0);
+    std::tm now = *std::localtime(&t);
 
     std::ifstream input_file(argv[1]);
     // Jump txt Headers
     std::getline(input_file, line);
+    
     while (std::getline(input_file, line))
     {
 
@@ -84,7 +96,7 @@ int main(int argc, char **argv)
         // Date verification
         struct std::tm tm = str_todate(line.substr(0, 10).c_str());
 
-        if (tm.tm_year > 2023 || p != 11)
+        if (now < tm ||  p != 11 || tm < first_record)
         {
             std::cout << "Error: bad input => " << line << std::endl;
             continue;
@@ -117,7 +129,7 @@ int main(int argc, char **argv)
 
         it = database_record.upper_bound(tm);
         it--;
-        std::cout << line.substr(0, 10) << " => " << number << " = " << it->second * atof(number.c_str()) << std::endl;
+        std::cout << line.substr(0, 10) << " => " << number << " = " << std::setprecision(2) <<std::fixed<< it->second * atof(number.c_str()) << std::endl;
     }
     return 0;
 }
