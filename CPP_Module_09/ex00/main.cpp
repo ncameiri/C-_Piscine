@@ -61,8 +61,10 @@ int main(int argc, char **argv)
     std::string line;
     // Jump csv Headers
     std::getline(database, line);
+
     std::tm first_record;
     bool first_record_bool=false;
+    
 
     while (std::getline(database, line))
     {
@@ -87,6 +89,11 @@ int main(int argc, char **argv)
     std::ifstream input_file(argv[1]);
     // Jump txt Headers
     std::getline(input_file, line);
+    if (line != "date | value")
+    {
+        std::cout << "Error: Bad Format." << std::endl;
+        return 1;
+    }
     
     while (std::getline(input_file, line))
     {
@@ -94,9 +101,14 @@ int main(int argc, char **argv)
         // p needs to be 11 to be well formated and different than -1
         int p = line.find('|');
         // Date verification
+        if(line == "" || line.size() < 11)
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
+        }
         struct std::tm tm = str_todate(line.substr(0, 10).c_str());
 
-        if (now < tm ||  p != 11 || tm < first_record)
+        if (now < tm || line[10] != ' ' || p != 11 || tm < first_record)
         {
             std::cout << "Error: bad input => " << line << std::endl;
             continue;

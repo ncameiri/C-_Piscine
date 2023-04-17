@@ -4,7 +4,7 @@
 #include <list>
 #include <stdint.h>
 #include <algorithm>
-// https://www.geeksforgeeks.org/merge-sort/
+//  https://www.geeksforgeeks.org/merge-sort/
 
 
 
@@ -209,7 +209,7 @@ void list_func(int argc, char **argv)
 int main(int argc, char **argv)
 {
 
-    if (argc < 2 || check_input(argv))
+    if (argc < 2 || check_input(argv) || argc > 10000)
     {
         std::cout << "Error" << std::endl;
         return 1;

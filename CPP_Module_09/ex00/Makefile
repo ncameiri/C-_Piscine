@@ -1,14 +1,14 @@
 NAME = btc
 CC = c++
 C_FLAGS = -std=c++98 -Wall -Wextra -Werror 
-FILES = BitcoinExchange
+FILES = BitcoinExchange main
 SRC= $(addsuffix .cpp, $(FILES))
 OBJ =$(addsuffix .o, $(FILES))
 
-all : $(NAME)  #$(STD_NAME)
+all : $(NAME)  
 
 $(NAME) : $(OBJ)
-	${CC} ${C_FLAGS} -o $(NAME) $(OBJ) main.cpp
+	${CC} ${C_FLAGS} -o $(NAME) $(OBJ) 
 
 $(OBJ): $(SRC)
 	${CC} ${C_FLAGS} -o $@ -c $(@:.o=.cpp)   
